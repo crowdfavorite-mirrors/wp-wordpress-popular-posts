@@ -3,8 +3,8 @@ Contributors: hcabrera
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=dadslayer%40gmail%2ecom&lc=GB&item_name=Wordpress%20Popular%20Posts%20Plugin&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG_global%2egif%3aNonHosted
 Tags: popular, posts, popular posts, widget, seo, wordpress, custom post type
 Requires at least: 3.3
-Tested up to: 3.5.1
-Stable tag: 2.3.5
+Tested up to: 3.6
+Stable tag: 2.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,10 +31,12 @@ Wordpress Popular Posts is a highly customizable widget that displays the most p
 * **Automatic maintenance** - Wordpress Popular Posts will wipe out from its cache automatically all those posts that have not been viewed more than 30 days from the current date, keeping just the popular ones on the list! This ensures that your cache table will remain as compact as possible! (You can also clear it manually if you like, [look here for instructions](http://wordpress.org/extend/plugins/wordpress-popular-posts/faq/)!).
 
 = Notices =
-* Minimum requirements changed: version 2.3.3 (and on) requires **PHP 5.2+** and **Wordpress 3.3** (or greater).
+* Minimum requirements changed: from version 2.3.3 (and on), Wordpress Popular Posts requires **PHP 5.2+** and **Wordpress 3.3** (or greater).
 * The custom HTML layout functionality [has changed](http://wordpress.org/extend/plugins/wordpress-popular-posts/changelog/) on v2.3.3! WPP will attempt to use the markup you set on previous versions, but in case it breaks please check the [FAQ section](http://wordpress.org/extend/plugins/wordpress-popular-posts/installation/) to learn how to set it up again.
 * From version 2.0 and on, Wordpress Popular Posts requires Wordpress 2.8 at least in order to function correctly. If you're not running Wordpress 2.8 (or newer) please use [Wordpress Popular Posts v.1.5.1](http://downloads.wordpress.org/plugin/wordpress-popular-posts.1.5.1.zip) instead.
 * If you are upgrading from any version prior to Wordpress Popular Posts 1.4.6, please [update to 1.4.6](http://downloads.wordpress.org/plugin/wordpress-popular-posts.1.4.6.zip) first!
+
+Wordpress Popular Posts is now also on [GitHub](https://github.com/cabrerahector/wordpress-popular-posts)!
 
 == Installation ==
 
@@ -95,7 +97,7 @@ The **wpp_get_views** template tag retrieves the views count of a single post/pa
 == Frequently Asked Questions ==
 
 = I need help with your plugin! What should I do? =
-First thing to do is read both FAQ and [Installation](http://wordpress.org/extend/plugins/wordpress-popular-posts/installation/) sections as they should address most of the questions you might have about this plugin (and even more info can be found via *wp-admin > Settings > Wordpress Popular Posts > FAQ*). If you're having problems with WPP, my first suggestion would be try disabling all other plugins and then re-enable each one to make sure there are no conflicts. Also, try switching to a different theme and see if the issue persists. Checking the [Support Forum](http://wordpress.org/support/plugin/wordpress-popular-posts) is also a good idea as chances are that someone else has already posted something about it (and if not, you are always welcome to create a new thread - but make sure you [read this first](http://wordpress.org/support/topic/read-me-first-how-to-report-bugs)!). **Remember:** *read first*. It'll save you (and me) time.
+First thing to do is read both FAQ and [Installation](http://wordpress.org/extend/plugins/wordpress-popular-posts/installation/) sections as they should address most of the questions you might have about this plugin (and even more info can be found via *wp-admin > Settings > Wordpress Popular Posts > FAQ*). If you're having problems with WPP, my first suggestion would be try disabling all other plugins and then re-enable each one to make sure there are no conflicts. Also, try switching to a different theme and see if the issue persists. Checking the [Support Forum](http://wordpress.org/support/plugin/wordpress-popular-posts) and the [issue tracker](https://github.com/cabrerahector/wordpress-popular-posts/issues) is also a good idea as chances are that someone else has already posted something about it (and if not, you are always welcome to create a new thread). **Remember:** *read first*. It'll save you (and me) time.
 
 = -FUNCTIONALITY- =
 
@@ -155,7 +157,7 @@ Since this plugin does not include any predefined designs, it's up to you to sty
 = I want to remove WPP's stylesheet. How can I do that? =
 Simply add the following code to your theme's functions.php file: `<?php wp_dequeue_style('wordpress-popular-posts') ?>` (or disable the stylesheet via *wp-admin > Settings > Wordpress Popular Posts > Tools*).
 
-= -OTHER STUFF THAT YOU SHOULD KNOW- =
+= -OTHER STUFF THAT YOU (PROBABLY) WANT TO KNOW- =
 
 = I want to translate your plugin into my language / help you update a translation. What do I need to do? =
 There's a PO file included with Wordpress Popular Posts. If your language is not already supported by my plugin, you can use a [gettext](http://www.gnu.org/software/gettext/) editor like [Poedit](http://www.poedit.net/) to translate all texts into your language. If you want to, you can send me your resulting PO and MO files to *hcabrerab at gmail dot com* so I can include them on the next release of my plugin (and would be really grateful if you can also help keep it updated on future releases).
@@ -183,6 +185,23 @@ For the time being, the [Support Forum](http://wordpress.org/support/plugin/word
 4. Wordpress Popular Posts Stats panel.
 
 == Changelog ==
+
+= 2.3.7 =
+* Fixed category excluding/including bug.
+
+= 2.3.6 =
+* Added ability to set links' target attribute (thanks, Pedro!).
+* Added sanitization for external thumbnail filenames to avoid weird characters.
+* Added a new content tag, {score}, to display the post rating as a simple integer (thanks, Artem!).
+* Added japanese and persian translations (thanks kjmtsh and Tatar).
+* Added wpp-list class to the UL tag, this should help style the popular list better.
+* Added plugin version to wp_enqueue_* calls.
+* Updated thumbnail feature to handle external images.
+* Updated wpp.css with text floating next to thumbnails - this sets a predefined style for the plugin for the first time.
+* Removed unnecesary wpp-thumbnail class from link tag, the image already has it.
+* Fixed typo in wpp_update_warning. From v2.3.3, minimun Wordpress version required is 3.3.
+* Fixed minor bugs.
+
 = 2.3.5 =
 * Fixed minor bugs on admin page.
 * Fixed query bug preventing some results from being listed.
